@@ -10,6 +10,8 @@ public class ContinuousMovement : MonoBehaviour
 {
     public float speed = 1;
     public XRNode inputSource;
+
+    private XRRig rig;
     private Vector2 inputAxis;
     private CharacterController character;
 
@@ -17,6 +19,7 @@ public class ContinuousMovement : MonoBehaviour
     void Start()
     {
         character = GetComponent<CharacterController>();
+        rig = GetComponent<XRRig>();
 
     }
 
@@ -30,8 +33,11 @@ public class ContinuousMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 direction = new Vector3(inputAxis.x, 0, inputAxis.y);
+        Quaternion headYaw = Quaternion.Euler(0, rig.cameraGameObject.transform.eulerAngles.y, 0);
+        Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
 
+
+    // Need to find a way to stop player from continuously moving we the speed is set to more than zero and the joystick has not been triggered  
         character.Move(direction * Time.fixedDeltaTime*speed);
 
     }
