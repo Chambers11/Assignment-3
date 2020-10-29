@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs
+/Library
+/UserSettings
+/Temp
+/obj/Debug
+/Assembly-CSharp-Editor.csproj
+/Assembly-CSharp.csproj
+/Assignment3.0ForestFireFeatures.sln
