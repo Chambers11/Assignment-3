@@ -50,6 +50,11 @@ public class MiniMap : MonoBehaviour
     // Update is a built-in Unity function that is called once per frame 
     private void Update()
     {
+       
+         
+
+
+
         // go through every sprite in the mini map grid and assign the colour based on the state of each cell in the forest fire 3D script   
         for (int xCount = 0; xCount < forestFire3D.gridSizeX; xCount++)
         {
@@ -79,6 +84,9 @@ public class MiniMap : MonoBehaviour
                 {
                     Debug.LogError("objectArray is not 0, 1 or 2, check code for errors");
                 }
+
+                cellSpriteRenderers[forestFire3D.nearestX,forestFire3D.nearestY].color = Color.blue;
+
             }
         }
     }

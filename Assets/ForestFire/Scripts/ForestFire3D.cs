@@ -36,6 +36,13 @@ public class ForestFire3D : MonoBehaviour
 
     private Camera gameCamera; // the game camera pointing at the board
 
+    public int nearestX;
+    public int nearestY;
+
+
+
+    /*private bool nearsetCellFound;*/  // By default the bool is false, this was relating to running the loop only once in line 75 and 117 for the players position/ finding the nearest cell 
+
     // Awake is a built-in Unity function that is only called once, before the Start function
     private void Awake()
     {
@@ -70,9 +77,57 @@ public class ForestFire3D : MonoBehaviour
         }
     }
 
+    private void FindNearestCell()
+    {
+        // Find nearest cell to player 
+
+        ForestFireCell nearestCell = new ForestFireCell();  // Created a local version of the nearestCell (essentially an imaginary one) and the = new ForestFireCell it the code needed to make it more real. nearestCell is to to be an existing cell in line 99
+        float currentClosestDistance = 10000; // Basically this is set very high so the when the loop runs for the first time the first cell distance can be assured of being found becuase the current distance between to player for the first cell will be less than 10000
+
+        // Iterate through each cell in the rows and colums 
+        for (int xCount = 0; xCount < gridSizeX; xCount++)
+        {
+            // Check the current state of the cell and update visual 
+            for (int yCount = 0; yCount < gridSizeY; yCount++)
+            {
+
+                // This will help us determine the distance beteen vectors a and b or in this case the distance from the player 
+                /* Debug.Log(Vector3.Distance(forestFireCells[xCount, yCount].transform.position, gameCamera.transform.position)); // This line of code expresses the distance between the cell we are checking and the camera*/
+                // The other way we could write line 87 is as follows:
+                float distance;
+
+                distance = Vector3.Distance(forestFireCells[xCount, yCount].transform.position, gameCamera.transform.position);
+
+                // This is retriving the cell with the closest distance to the player which in this case is the camera game object, this will update checking each cell and taking the new shortest distance till the smallest distnce to the player is found 
+                if (distance < currentClosestDistance) // This code only gets checked is the current distance between the the first cell checked and the player distance is less than the current set closest distance of 10000m between the player and the first cell checked. 
+                {
+                    nearestCell = forestFireCells[xCount, yCount]; // Nearst cell is equal to whatever is in the two numbers in the  square brackets in this case e.g. [20,20]
+
+                    // We are also saving it here so that we can call upon the code in this script in the mini map script 
+                    nearestX = xCount;
+                    nearestY = yCount;
+
+                    currentClosestDistance = distance;
+
+                }
+            }
+        }
+    }
+
+
+
+
     // Update is a built-in Unity function that is called once per frame 
     private void Update()
     {
+        // this line of code is there to show how we run the loop only once, but because we awalys want to know the players position we need the loop to be constantly updating.
+        /* if (nearsetCellFound == false)  
+         {
+         FindNearestCell();
+         }*/
+
+        FindNearestCell(); // This is calling upon the code in line 75 down for the loop, and thus constantly updating the players position
+
         // check if the spacebar key has been pressed. this key will toggle between whether the game is currently running or paused
         if (Input.GetKeyDown(KeyCode.Space))
         {
