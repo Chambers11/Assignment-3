@@ -57,7 +57,7 @@ public class MiniMap : MonoBehaviour
     private void Update()
     {
        
-         
+        
 
 
 
@@ -91,14 +91,14 @@ public class MiniMap : MonoBehaviour
                     Debug.LogError("objectArray is not 0, 1 or 2, check code for errors");
                 }
 
-                cellSpriteRenderers[forestFire3D.nearestX,forestFire3D.nearestY].color = Color.blue;
+                cellSpriteRenderers[forestFire3D.nearestX,forestFire3D.nearestY].color = Color.blue; // This line of code allows the sprite indicating the player to have a diffrent color 
 
             }
         }
 
         RotateMiniMap();
     }
-
+    // This section of code is to allow the Mini Map to Rotate with in tandem with the player of the game. 
     private void RotateMiniMap()
     {
         Vector3 eulerRotation = new Vector3(pivot.transform.eulerAngles.x, pivot.transform.eulerAngles.y, headCamera.transform.eulerAngles.y);
