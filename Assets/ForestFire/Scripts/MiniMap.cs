@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 // this class creates a mini map which is attached to the players left arm. 
 // the code is similar to the ForestFire2D script, a grid of 2D sprites is created which represent each cell
@@ -10,6 +11,11 @@ public class MiniMap : MonoBehaviour
     public ForestFire3D forestFire3D; // reference to the main forest fire 3D script
 
     public GameObject cellSprite; // sprite used to represent a cell on the grid
+
+
+    public GameObject pivot;
+    public GameObject headCamera;
+
 
     public Transform spawnPosition; // initial spawn position
     public SpriteRenderer[,] cellSpriteRenderers = new SpriteRenderer[0, 0]; // an array to hold references to the sprite renderer component attached to each gameobject
@@ -89,5 +95,14 @@ public class MiniMap : MonoBehaviour
 
             }
         }
+
+        RotateMiniMap();
+    }
+
+    private void RotateMiniMap()
+    {
+        Vector3 eulerRotation = new Vector3(pivot.transform.eulerAngles.x, pivot.transform.eulerAngles.y, headCamera.transform.eulerAngles.y);
+
+        pivot.transform.rotation = Quaternion.Euler(eulerRotation);
     }
 }
