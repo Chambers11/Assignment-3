@@ -2288,6 +2288,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1508121014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1837324663941945069, guid: d45e8a6999317d2428a51593da44d3ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1543957997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1510811926 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1837324663941945071, guid: d45e8a6999317d2428a51593da44d3ab,
@@ -3128,7 +3134,7 @@ Transform:
   m_GameObject: {fileID: 1987417476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.000016943733, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 77720549}
   m_Father: {fileID: 2136594217}
@@ -3270,7 +3276,7 @@ Transform:
   m_GameObject: {fileID: 2136594216}
   m_LocalRotation: {x: 0.11712167, y: 0.14126423, z: -0.9759366, w: 0.117791094}
   m_LocalPosition: {x: 0.1348, y: 0.0685, z: 0.035}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children:
   - {fileID: 1987417477}
   m_Father: {fileID: 277846092}
@@ -3291,6 +3297,8 @@ MonoBehaviour:
   forestFire3D: {fileID: 219239745}
   cellSprite: {fileID: 9176203362394045872, guid: be30b92be59bc5046adbe962d7c6d3a8,
     type: 3}
+  pivot: {fileID: 1987417476}
+  headCamera: {fileID: 1508121014}
   spawnPosition: {fileID: 77720549}
 --- !u!23 &2136594220
 MeshRenderer:
