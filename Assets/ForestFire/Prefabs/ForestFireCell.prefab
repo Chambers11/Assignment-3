@@ -32,6 +32,19 @@ Transform:
   m_Father: {fileID: 5921467954205730206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7885575378891715652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4045407423716281207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.52, z: 9.949866}
+  m_Center: {x: 0, y: -0.06, z: 4.9638085}
 --- !u!1 &8517016399536926406
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +163,6 @@ MonoBehaviour:
   groundMaterialTree: {fileID: 2100000, guid: 5558b5711d37782468eeee5c2880e7d8, type: 2}
   treeObject: {fileID: 4045407423716281207}
   leaves: {fileID: 4045407423716281205}
-  grassObject: {fileID: 0}
   rockObject: {fileID: 8846265225297738733}
   treeFireFVX: {fileID: 4754294210375399161, guid: 88ca74c2fda62784d928ebacea7a6063,
     type: 3}
@@ -300,6 +312,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &7003548395563080114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846265225297738733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1245217, y: 1.7401204, z: 2.5837843}
+  m_Center: {x: 0.22552967, y: 0.58506036, z: -0.09376824}
 --- !u!1001 &1289785187829813023
 PrefabInstance:
   m_ObjectHideFlags: 0
