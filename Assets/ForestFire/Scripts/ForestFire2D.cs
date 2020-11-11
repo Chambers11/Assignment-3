@@ -10,6 +10,7 @@ public class ForestFire2D : MonoBehaviour
     public int gridSizeY; // y size of the grid
     public int nlight; // the number of trees to set alight at the start of the game
     public int xC, yC; // used for picking random x, y points
+    public int windDirection; // new variable that holds the wind direction - goes from 1 (N) to 8 (NW)
 
     public Sprite cellSprite; // sprite used to represent a cell on the grid
     public Text gameRunningText; // text used to display whether the game is running
@@ -40,6 +41,7 @@ public class ForestFire2D : MonoBehaviour
         CreateGrid(gridSizeX, gridSizeY);
         PauseGame(true);
         UpdateGridVisuals();
+        windDirection = UnityEngine.Random.Range(1, 8); // set a random value to windDirection
     }
 
     // this function controls whether or not to pause the game
@@ -115,8 +117,8 @@ public class ForestFire2D : MonoBehaviour
 
             do
             {
-            xC = UnityEngine.Random.Range(0, gridSizeX);// now pick some trees at random and set them alight
-            yC = UnityEngine.Random.Range(0, gridSizeY);
+                xC = UnityEngine.Random.Range(0, gridSizeX);// now pick some trees at random and set them alight
+                yC = UnityEngine.Random.Range(0, gridSizeY);
                 if (objectArray[xC, yC] == 2)
                 {
                     gameArray[xC, yC] = 1; // set cell to alight
@@ -124,8 +126,8 @@ public class ForestFire2D : MonoBehaviour
                 }
             } while (nlight > 0);  // when you've lit them all exit this loop
         }
-                // update the visual state of each cell
-                UpdateGridVisuals();
+        // update the visual state of each cell
+        UpdateGridVisuals();
 
         // if the game is not running, return here to prevent the rest of the code in this Update function from running    
         if (gameRunning == false)
@@ -146,6 +148,27 @@ public class ForestFire2D : MonoBehaviour
     // update the status of each cell on grid according to the rules of the game
     private void UpdateCells()
     {
+        // change the wind direction randomly
+        xC = UnityEngine.Random.Range(0, 100); // generate a random number between 0 and 100
+        if (xC > 50)
+        {
+            windDirection = windDirection + UnityEngine.Random.Range(-1, 2);
+
+            if (windDirection < 1)
+            {
+                windDirection = 8;
+            }
+            else if (windDirection > 8)
+            {
+                windDirection = 1;
+            }
+          /*  windDirection = 6; // Setting windDirection to 6 here sets its direction temporarily and all of the above if statement is over ruled by it, just to make sure it worked.  Get rid of this line when you've doneit all
+           */
+            }
+
+
+
+
         // iterate through each cell in the rows and columns
         for (int xCount = 0; xCount < gridSizeX; xCount++)
         {
@@ -170,7 +193,7 @@ public class ForestFire2D : MonoBehaviour
                 else if (fuelArray[xCount, yCount] > 0)// the cell has fuel but is not alight yet
                 {
                     // A dead cell with an alight neighbour which has fuel has a probablility of becoming an alight cell
-                    if (alightNeighbourCells >0)
+                    if (alightNeighbourCells > 0)
                     {
                         xC = UnityEngine.Random.Range(0, 100); // generate a random number between 0 and 100
                         if (xC < 10 * alightNeighbourCells) // the more alight neighbours the greater the probability of catching light
@@ -224,6 +247,11 @@ public class ForestFire2D : MonoBehaviour
                     if (gameArray[xPosition, yPosition] == 1)
                     {
                         alightNeighbourCells++;
+
+                        if (xPosition == cellPositionX + 1 && yPosition == cellPositionY + 1 && windDirection == xC ) // if statement to increase the value of alightNeighbourCells by 1 if the windDirection is set to 6
+                        {
+                            alightNeighbourCells++;
+                        }
 
                         // we don't want to check if the specified cell is alight, only its neighbours so it was added, subtract it
                         if (xPosition == cellPositionX && yPosition == cellPositionY)
