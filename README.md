@@ -8,3 +8,6 @@ In this branch, the ForestFire3D script contains code for real time player posit
 ![image](https://user-images.githubusercontent.com/72683052/98971118-aa2d6580-2508-11eb-9ba4-e03930eccbf8.png)
 
 The color scheme in the Mini Map represents the prefabrications in the VR-World, as well as the people . The deep blue sprite (squares) indicates the persons/players position in the map . The red sprite indicate the fire that is burning throughout the VR World, the green spites  reflects the trees, yellow sprites reflect the grass, grey sprites reflect the rocks and black sprites signify burnt trees and grass.   
+
+[ Zenodo Release Link ]( https://zenodo.org/record/4270272#.X611C8j7SUk)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4270272.svg)](https://doi.org/10.5281/zenodo.4270272)
