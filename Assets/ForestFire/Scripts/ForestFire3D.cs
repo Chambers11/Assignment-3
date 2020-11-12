@@ -58,7 +58,7 @@ public class ForestFire3D : MonoBehaviour
         RandomiseGrid();
         PauseGame(true);
         UpdateGridVisuals();
-        windDirection = UnityEngine.Random.Range(1, 8); // Setting random value to windDirection
+        windDirection = UnityEngine.Random.Range(1, 8); // Setting random value to windDirection,the number 16 represents the diffrent cardinal directions, e.g. N, NNE, NE
     }
 
     // this function controls whether or not to pause the game
@@ -86,7 +86,7 @@ public class ForestFire3D : MonoBehaviour
         ForestFireCell nearestCell = new ForestFireCell();  // Created a local version of the nearestCell (essentially an imaginary one) and the = new ForestFireCell it the code needed to make it more real. nearestCell is to to be an existing cell in line 99
         float currentClosestDistance = 10000; // Basically this is set very high so the when the loop runs for the first time the first cell distance can be assured of being found becuase the current distance between to player for the first cell will be less than 10000
 
-        // Iterate through each cell in the rows and colums 
+        // Iterate through each cell in the rows and colums, 
         for (int xCount = 0; xCount < gridSizeX; xCount++)
         {
             // Check the current state of the cell and update visual 

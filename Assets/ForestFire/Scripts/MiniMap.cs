@@ -94,7 +94,7 @@ public class MiniMap : MonoBehaviour
             }
         }
 
-
+// Section of code allows me to rotate the map in relation to the player, however map reading skills can add to the functinality of the feature 
      /*  RotateMiniMap();
     }
     // This section of code is to allow the Mini Map to Rotate with in tandem with the player of the game. 
