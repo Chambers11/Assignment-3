@@ -6,5 +6,8 @@ The second feature coded was added to this branch off the main body of code, the
 
 ![image](https://user-images.githubusercontent.com/72683052/98971677-638c3b00-2509-11eb-8cfb-97df27903a48.png)
 
+### **Links:** 
 
-Figure 2 Forest Fire simulation with the presence of wind
+[ Zenodo Release Link ]( https://zenodo.org/record/4270272#.X611C8j7SUk)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4270272.svg)](https://doi.org/10.5281/zenodo.4270272)
