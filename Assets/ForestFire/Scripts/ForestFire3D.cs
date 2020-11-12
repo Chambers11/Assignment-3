@@ -11,6 +11,7 @@ public class ForestFire3D : MonoBehaviour
     public int gridSizeY; // y size of the grid
     public int nlight; // the number of trees to set alight at the start of the game
     public int xC, yC; // used for picking random x, y points
+    public int windDirection;
 
     public int rockChance; // the percentage chance a cell is assigned as rock
     public int grassChance; // the percentage chance a cell is assigned as grass
@@ -57,6 +58,7 @@ public class ForestFire3D : MonoBehaviour
         RandomiseGrid();
         PauseGame(true);
         UpdateGridVisuals();
+        windDirection = UnityEngine.Random.Range(1, 8); // Setting random value to windDirection
     }
 
     // this function controls whether or not to pause the game
@@ -218,6 +220,25 @@ public class ForestFire3D : MonoBehaviour
     // update the status of each cell on grid according to the rules of the game
     private void UpdateCells()
     {
+        xC = UnityEngine.Random.Range(0, 100); // Generates a random number between 0 and 100
+        if (xC > 50)
+        {
+            windDirection = windDirection + UnityEngine.Random.Range(-1, 2);
+            
+            if (windDirection < 1)
+            {
+                windDirection = 8;
+            }
+            else if (windDirection > 8)
+            {
+                windDirection = 1;
+            }
+
+
+            
+        }
+
+
         // iterate through each cell in the rows and columns
         for (int xCount = 0; xCount < gridSizeX; xCount++)
         {
@@ -299,6 +320,11 @@ public class ForestFire3D : MonoBehaviour
                     if (forestFireCells[xPosition, yPosition].cellState == ForestFireCell.State.Alight)
                     {
                         alightNeighbourCells++;
+
+                        if (xPosition == cellPositionX + 1 && yPosition == cellPositionY + 1 && windDirection == xC)
+                        {
+                            alightNeighbourCells--;
+                        }
 
                         // we don't want to check if the specified cell is alight, only its neighbours so it was added, subtract it
                         if (xPosition == cellPositionX && yPosition == cellPositionY)
