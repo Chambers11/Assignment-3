@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class ForestFire2D : MonoBehaviour
     public GameObject[,] cellGameObjects = new GameObject[0, 0]; // an array to hold references to each gameobject that make up grid
     public SpriteRenderer[,] cellSpriteRenderers = new SpriteRenderer[0, 0]; // an array to hold references to the sprite renderer component attached to each gameobject
     public bool gameRunning = false; // bool controlling whether the game is currently running
+
+   
 
     [Range(0.01f, 3f)]
     public float updateRate; // used to define how often will the game update (in seconds)
@@ -144,6 +147,7 @@ public class ForestFire2D : MonoBehaviour
         }
     }
 
+    
 
     // update the status of each cell on grid according to the rules of the game
     private void UpdateCells()

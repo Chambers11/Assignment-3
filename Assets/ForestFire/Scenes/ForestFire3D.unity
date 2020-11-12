@@ -551,6 +551,7 @@ MonoBehaviour:
   nlight: 5
   xC: 0
   yC: 0
+  windDirection: 0
   rockChance: 10
   grassChance: 40
   cellPrefab: {fileID: 8517016399536926406, guid: bd5b6afb2ea580946a81c949556e036e,
@@ -2433,6 +2434,11 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 20024031}
+    - target: {fileID: 1837324665045843313, guid: d45e8a6999317d2428a51593da44d3ab,
+        type: 3}
+      propertyPath: m_HideControllerOnSelect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1837324665045843319, guid: d45e8a6999317d2428a51593da44d3ab,
         type: 3}
       propertyPath: m_IsActive

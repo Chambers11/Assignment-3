@@ -234,7 +234,6 @@ public class ForestFire3D : MonoBehaviour
                 windDirection = 1;
             }
 
-
             
         }
 

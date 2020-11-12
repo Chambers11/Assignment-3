@@ -94,6 +94,7 @@ public class MiniMap : MonoBehaviour
             }
         }
 
+
      /*  RotateMiniMap();
     }
     // This section of code is to allow the Mini Map to Rotate with in tandem with the player of the game. 
@@ -103,4 +104,4 @@ public class MiniMap : MonoBehaviour
 
         pivot.transform.rotation = Quaternion.Euler(eulerRotation);*/
     }
-}
+} 
