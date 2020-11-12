@@ -57,9 +57,7 @@ public class MiniMap : MonoBehaviour
     private void Update()
     {
        
-        
-
-
+ 
 
         // go through every sprite in the mini map grid and assign the colour based on the state of each cell in the forest fire 3D script   
         for (int xCount = 0; xCount < forestFire3D.gridSizeX; xCount++)
@@ -96,13 +94,13 @@ public class MiniMap : MonoBehaviour
             }
         }
 
-        RotateMiniMap();
+     /*  RotateMiniMap();
     }
     // This section of code is to allow the Mini Map to Rotate with in tandem with the player of the game. 
     private void RotateMiniMap()
     {
         Vector3 eulerRotation = new Vector3(pivot.transform.eulerAngles.x, pivot.transform.eulerAngles.y, headCamera.transform.eulerAngles.y);
 
-        pivot.transform.rotation = Quaternion.Euler(eulerRotation);
+        pivot.transform.rotation = Quaternion.Euler(eulerRotation);*/
     }
 }
