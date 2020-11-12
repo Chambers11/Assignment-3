@@ -58,7 +58,7 @@ public class ForestFire3D : MonoBehaviour
         RandomiseGrid();
         PauseGame(true);
         UpdateGridVisuals();
-        windDirection = UnityEngine.Random.Range(1, 8); // Setting random value to windDirection,the number 16 represents the diffrent cardinal directions, e.g. N, NNE, NE
+        windDirection = UnityEngine.Random.Range(1, 16); // Setting random value to windDirection,the number 16 represents the diffrent cardinal directions, e.g. N, NNE, NE
     }
 
     // this function controls whether or not to pause the game
@@ -227,9 +227,9 @@ public class ForestFire3D : MonoBehaviour
             
             if (windDirection < 1)
             {
-                windDirection = 8;
+                windDirection = 16;
             }
-            else if (windDirection > 8)
+            else if (windDirection > 16)
             {
                 windDirection = 1;
             }
